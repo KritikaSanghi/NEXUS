@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <script src="script.js" defer></script>
+    <style>
+body{
+    background-color: rgb(234, 186, 186);
+}
+.what{
+    padding-left: 40%;
+    padding-top: 10%;
+    font-size: 30px;
+}
+#enter{
+    background-color: rgb(235, 130, 130);
+    border: 3px solid black;
+    font-size: 30px;
+    border-radius: 20px;
+   
+}
+#but{
+
+background-color: rgba(106, 82, 108, 0.892);
+font-size: 30px;
+border-radius: 20px;
+border: 2px solid  black ;
+color: beige;
+}
+#act{
+    padding-left: 310px;
+    padding-top: 20px;
+}
+    </style>
+</head>
+<body>
+   
+    <div class="what">
+        <h1>TO-DO LIST </h1>  
+    <form>
+        <input type="text"  id="enter" >
+    </form>
+    <div id="act">
+    <button id="but" type="submit">Add</button>
+    </div>
+    <div class="list"></div>
+</div>
+<script>
+    const form = document.querySelector("form")
+const input = document.querySelector("input")
+const list = document.querySelector(".list")
+const button=document.getElementById("but")
+button.addEventListener("click", (e) => {
+    e.preventDefault()
+    const value = input.value
+    const elem = document.createElement("div")
+    elem.textContent = value
+    elem.addEventListener("click", () => {
+        if (elem.style.textDecoration === "line-through") {
+            elem.style.textDecoration = "none"
+        }
+        else {
+            elem.style.textDecoration = "line-through"
+        }
+    })
+    list.append(elem)
+    input.value = ""
+
+})
+</script>
+</body>
+
+</html>
